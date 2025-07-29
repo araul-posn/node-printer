@@ -26,8 +26,8 @@ jobs:
       - name: Prebuild
         run: |
           npm run apply-patches
-          npm run prebuild -- --strip --all --arch ia32 -u ${{ secrets.PREBUILD_TOKEN }}
-          npm run prebuild -- --strip --all --arch x64 -u ${{ secrets.PREBUILD_TOKEN }}
+          npm run prebuild -- --strip --target 20.0.0 --target 21.0.0 --target 22.0.0 --target 23.0.0 --target 24.0.0 --arch ia32 -u ${{ secrets.PREBUILD_TOKEN }}
+          npm run prebuild -- --strip --target 20.0.0 --target 21.0.0 --target 22.0.0 --target 23.0.0 --target 24.0.0 --arch x64 -u ${{ secrets.PREBUILD_TOKEN }}
   prebuild-macos:
     name: Prebuild Binaries for macOS
     runs-on: macos-latest
@@ -43,7 +43,7 @@ jobs:
       - name: Prebuild
         run: |
           npm run apply-patches
-          npm run prebuild -- --strip --all --arch x64 -u ${{ secrets.PREBUILD_TOKEN }}
+          npm run prebuild -- --strip --target 20.0.0 --target 21.0.0 --target 22.0.0 --target 23.0.0 --target 24.0.0 --arch x64 -u ${{ secrets.PREBUILD_TOKEN }}
   prebuild-windows:
     name: Prebuild Binaries for Windows
     runs-on: windows-latest
@@ -59,5 +59,5 @@ jobs:
       - name: Prebuild
         run: |
           npm run apply-patches
-          npm run prebuild -- --strip --all --arch ia32 -u ${{ secrets.PREBUILD_TOKEN }}
-          npm run prebuild -- --strip --all --arch x64 -u ${{ secrets.PREBUILD_TOKEN }}
+          npm run prebuild -- --strip --target 20.0.0 --target 21.0.0 --target 22.0.0 --target 23.0.0 --target 24.0.0 --arch ia32 -u ${{ secrets.PREBUILD_TOKEN }}
+          npm run prebuild -- --strip --target 20.0.0 --target 21.0.0 --target 22.0.0 --target 23.0.0 --target 24.0.0 --arch x64 -u ${{ secrets.PREBUILD_TOKEN }}
