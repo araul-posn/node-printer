@@ -21,6 +21,8 @@ jobs:
           node-version: 16.x
       - uses: actions/checkout@v1
       - run: npm i
+      - name: Install Node.js headers
+        run: npx node-gyp install
       - name: Prebuild
         run: |
           npm run apply-patches
@@ -36,6 +38,8 @@ jobs:
           node-version: 16.x
       - uses: actions/checkout@v1
       - run: npm i
+      - name: Install Node.js headers
+        run: npx node-gyp install
       - name: Prebuild
         run: |
           npm run apply-patches
@@ -50,6 +54,8 @@ jobs:
           node-version: 16.x
       - uses: actions/checkout@v1
       - run: npm i
+      - name: Install Node.js headers
+        run: npx node-gyp install
       - name: Prebuild
         run: |
           npm run apply-patches
