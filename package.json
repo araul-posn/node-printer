@@ -21,7 +21,8 @@
     "prebuild": "^13.0.1",
     "prebuild-ci": "^4.0.0",
     "node-abi": "^3.70.0",
-    "patch-package": "^8.0.0"
+    "patch-package": "^8.0.0",
+    "node-gyp": "^10.2.0"
   },
   "engines": {
     "node": ">= 14.0.0"
