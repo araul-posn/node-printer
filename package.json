@@ -1,7 +1,7 @@
 {
   "name": "@araul-posn/node-printer",
   "description": "Node.js printer bindings",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "homepage": "https://github.com/araul-posn/node-printer",
   "author": {
     "name": "Ion Lupascu",
@@ -34,7 +34,9 @@
     "prebuild-all": "prebuild --all --force --strip --verbose",
     "prebuild": "prebuild",
     "rebuild": "node-gyp rebuild",
-    "test": "nodeunit test"
+    "test": "nodeunit test",
+    "create-release": "gh release create v$(node -p \"require('./package.json').version\") --title \"v$(node -p \"require('./package.json').version\")\" --notes \"Prebuilt binaries for node-printer\" --draft",
+    "publish-release": "gh release edit v$(node -p \"require('./package.json').version\") --draft=false"
   },
   "binary": {
     "module_name": "node_printer",

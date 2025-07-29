@@ -6,10 +6,25 @@ on:
       - main
 
 jobs:
+  create-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - run: npm i --ignore-scripts
+      - name: Create Release
+        run: npm run create-release
+        env:
+          GH_TOKEN: ${{ secrets.PREBUILD_TOKEN }}
+        continue-on-error: true
   prebuild-linux:
     name: Prebuild Binaries for Linux
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    needs: create-release
     steps:
       - name: Setup Dependencies
         run: |
@@ -32,6 +47,7 @@ jobs:
     name: Prebuild Binaries for macOS
     runs-on: macos-latest
     timeout-minutes: 30
+    needs: create-release
     steps:
       - uses: actions/setup-node@v4
         with:
@@ -48,6 +64,7 @@ jobs:
     name: Prebuild Binaries for Windows
     runs-on: windows-latest
     timeout-minutes: 30
+    needs: create-release
     steps:
       - uses: actions/setup-node@v4
         with:
