@@ -22,9 +22,12 @@
         # sources
         '<!@(["python", "tools/getSourceFiles.py", "src", "cc"])'
       ],
-      'defines': [ 'NAPI_DISABLE_CPP_EXCEPTIONS' ],
+      'defines': [ 'NODE_ADDON_API_DISABLE_CPP_EXCEPTIONS' ],
       'include_dirs' : [
         "<!@(node -p \"require('node-addon-api').include\")"
+      ],
+      'dependencies': [
+        "<!(node -p \"require('node-addon-api').targets\"):node_addon_api"
       ],
       'cflags!': [ '-fno-exceptions' ],
       'cflags_cc!': [ '-fno-exceptions' ],
