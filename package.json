@@ -18,18 +18,18 @@
   },
   "devDependencies": {
     "nodeunit": "*",
-    "prebuild": "^11.0.3",
+    "prebuild": "^13.0.1",
     "prebuild-ci": "^4.0.0",
-    "node-abi": "^3.8.0",
-    "patch-package": "^6.4.7"
+    "node-abi": "^3.70.0",
+    "patch-package": "^8.0.0"
   },
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 14.0.0"
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
     "apply-patches": "patch-package",
-    "prebuild-all": "prebuild --all --force --strip --verbose --openssl_fips=X",
+    "prebuild-all": "prebuild --all --force --strip --verbose",
     "prebuild": "prebuild",
     "rebuild": "node-gyp rebuild",
     "test": "nodeunit test"
@@ -37,6 +37,7 @@
   "binary": {
     "module_name": "node_printer",
     "module_path": "./lib/",
+    "napi_versions": [6],
     "host": "https://github.com/thiagoelg/node-printer/releases/download/",
     "remote_path": "v{version}"
   },
@@ -47,8 +48,8 @@
   ],
   "main": "./lib/printer",
   "dependencies": {
-    "nan": "^2.15.0",
-    "prebuild-install": "^7.0.1"
+    "node-addon-api": "^8.3.0",
+    "prebuild-install": "^7.1.2"
   },
   "types": "types/index.d.ts"
 }
